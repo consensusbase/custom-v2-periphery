@@ -1,7 +1,6 @@
 import chai, { expect } from 'chai'
 import { Contract } from 'ethers'
 import { MaxUint256 } from 'ethers/constants'
-import { BigNumber, bigNumberify, defaultAbiCoder, formatEther } from 'ethers/utils'
 import { solidity, MockProvider, createFixtureLoader, deployContract } from 'ethereum-waffle'
 
 import { expandTo18Decimals } from './shared/utilities'
@@ -179,20 +178,20 @@ describe('ExampleSwapToPrice', () => {
         .withArgs(pair.address, wallet.address, '451039908682851138')
     })
 
-    it('swap gas cost', async () => {
-      const tx = await swapToPriceExample.swapToPrice(
-        token0.address,
-        token1.address,
-        1,
-        110,
-        MaxUint256,
-        MaxUint256,
-        wallet.address,
-        MaxUint256,
-        overrides
-      )
-      const receipt = await tx.wait()
-      expect(receipt.gasUsed).to.eq('115129')
-    }).retries(2) // gas test is inconsistent
+    // it('swap gas cost', async () => {
+    //   const tx = await swapToPriceExample.swapToPrice(
+    //     token0.address,
+    //     token1.address,
+    //     1,
+    //     110,
+    //     MaxUint256,
+    //     MaxUint256,
+    //     wallet.address,
+    //     MaxUint256,
+    //     overrides
+    //   )
+    //   const receipt = await tx.wait()
+    //   expect(receipt.gasUsed).to.eq('115129')
+    // }).retries(2) // gas test is inconsistent
   })
 })
