@@ -1,2 +1,9 @@
 build/
 node_modules/
+artifacts/
+scripts/
+typechain-types/
+.DS_Store
+.env
+cache/
+test/
